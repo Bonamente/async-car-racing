@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border-width: 0;
+
+  clip: rect(0, 0, 0, 0);
+}
+
