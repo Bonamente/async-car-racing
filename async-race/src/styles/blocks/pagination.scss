@@ -1,0 +1,56 @@
+.garage-page__pagination {
+  display: flex;
+  justify-content: space-between;
+
+  width: 190px;  
+  margin: 50px 0;
+
+  button {
+    width: 90px;
+    height: 30px;
+
+    border-radius: 5px;
+   
+    span {
+      display: inline-block;
+      transition: all 0.5s;
+    }
+
+    &::before {
+      left: -100%;
+      transition: all 0.5s;
+    }
+
+    &:hover:not(:disabled)::before,
+    &:focus:not(:disabled)::before {
+      left: 35%;
+    }
+
+    &:hover:not(:disabled) > span,
+    &:focus:not(:disabled) > span {
+      transform: translateX(1000%);
+    }
+  }
+}
+
+.garage-page__prev-button::before,
+.garage-page__next-button::before {
+  position: absolute;
+  top: 0;
+  left: 10px;
+
+  content: "";
+  
+  width: 30px;
+  height: 30px;
+
+  background-image: url('../assets/img/arrow.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;  
+}
+
+.garage-page__next-button::before {
+  transform: rotate(180deg);
+}

@@ -6,6 +6,9 @@ body {
   max-width: 100%;
   margin: 0;
   padding: 0;
+
+  color: $main-text;
+  background-color: $bg-color;
 }
 
 img {
@@ -29,4 +32,3 @@ img {
 
   clip: rect(0, 0, 0, 0);
 }
-

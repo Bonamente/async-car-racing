@@ -1,0 +1,35 @@
+.button {
+  position: relative;
+
+  display: inline-block;
+  width: 130px;
+  height: 35px;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+
+  border: none;
+  border-radius: 50px;
+
+  background-color: #ffffff;
+  
+  overflow: hidden;
+
+  transition: .3s;
+  cursor: pointer;
+
+  &:disabled {
+    color: #e5e4e2;
+    background-color: #818589;
+    cursor: unset;
+  }
+
+  &:active {    
+    transition: 0.1s; 
+    transform: translate(0em, 0.15em) scale(0.9);
+  }
+}
