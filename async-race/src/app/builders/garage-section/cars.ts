@@ -1,5 +1,5 @@
 import { IState } from '../../types';
-import buildCar from './car';
+import { buildCar } from './car';
 
 const buildCars = (state: IState): Node => {
   const carsEl = <HTMLUListElement>document.createElement('ul');

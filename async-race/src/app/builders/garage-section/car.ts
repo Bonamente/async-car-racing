@@ -6,7 +6,7 @@ import {
   handleStopBtnClick,
 } from '../../handlers/handlers';
 
-const getCarImage = (color: string): string => `
+export const getCarImage = (color: string): string => `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" 
   style="enable-background:new 0 0 1000 1000" xml:space="preserve"><style>
   .st1{fill:#000000}.st2{fill:#b3b3b3;stroke:#000;stroke-width:33.9138;stroke-miterlimit:10}</style>
@@ -19,7 +19,7 @@ const getCarImage = (color: string): string => `
   <circle class="st2" cx="221.4" cy="574" r="68.2"/>
   <circle class="st2" cx="756.1" cy="574" r="68.2"/></g></g></switch></svg>`;
 
-const buildCar = (state: IState, car: Car): Node => {
+export const buildCar = (state: IState, car: Car): Node => {
   const { id, name, color } = car;
 
   const carEl = <HTMLLIElement>document.createElement('li');
@@ -90,5 +90,3 @@ const buildCar = (state: IState, car: Car): Node => {
 
   return carEl;
 };
-
-export default buildCar;
