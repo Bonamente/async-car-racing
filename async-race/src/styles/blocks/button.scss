@@ -28,7 +28,7 @@
     cursor: unset;
   }
 
-  &:active {    
+  &:active:not(:disabled) {    
     transition: 0.1s; 
     transform: translate(0em, 0.15em) scale(0.9);
   }

@@ -1,4 +1,5 @@
-.garage-page__pagination {
+.garage-page__pagination,
+.winners-page__pagination {
   display: flex;
   justify-content: space-between;
 
@@ -33,8 +34,15 @@
   }
 }
 
+.winners-page__pagination {
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
 .garage-page__prev-button::before,
-.garage-page__next-button::before {
+.garage-page__next-button::before,
+.winners-page__prev-button::before,
+.winners-page__next-button::before {
   position: absolute;
   top: 0;
   left: 10px;
@@ -51,6 +59,7 @@
   background-color: transparent;  
 }
 
-.garage-page__next-button::before {
+.garage-page__next-button::before,
+.winners-page__next-button::before {
   transform: rotate(180deg);
 }

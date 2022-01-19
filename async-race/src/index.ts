@@ -1,4 +1,4 @@
 import './styles/style.scss';
-// import { app } from './app/app';
+import { app } from './app/app';
 
-// app();
+app();
