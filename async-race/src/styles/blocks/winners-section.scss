@@ -1,0 +1,132 @@
+.winners-page__winners {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+}
+
+.winners__title {
+  margin: 0;
+
+  text-transform: uppercase;
+}
+
+.winners__page-index {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.winners__image-wrapper {
+  display: flex;
+  justify-content: center;
+
+  width: 36%;
+  min-width: 440px;  
+  background-color: $main-text;
+}
+
+.winners__table {
+  width: 36%;
+  min-width: 440px;
+
+  border-spacing: 0;
+
+  margin-bottom: 50px;
+  
+  font-size: 16px;
+  text-align: center;
+
+  border-collapse: collapse;
+
+  th, td {
+    font-weight: bold; 
+
+    border: 2px solid #000000;  
+  }
+
+  tr:last-of-type td {    
+    border-bottom-width: 0;
+   }
+
+  th, td {   
+    border-left-width: 0;    
+
+    &:last-of-type {
+      border-right-width: 0;
+    }
+  }
+
+  th {
+    height: 40px; 
+    padding: 10px 15px;
+
+    text-transform: uppercase;
+
+    background-color:  #32cd32;
+  }
+
+  td {
+    padding: 10px 15px;
+    background-color:	#484848;
+  }
+
+  .table__wins-cell,
+  .table__time-cell {    
+    padding: 0;
+  }
+}
+
+.table__wins,
+.table__time {
+  position: relative;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 10px 15px;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  color: $main-text;
+  text-align: center;
+  text-transform: uppercase;
+
+  border: none;
+  background-color: transparent; 
+
+  cursor: pointer;
+
+  transition: 0.5s;
+
+  &:hover,
+  &:focus {    
+    background-color: #00fa9a;
+  }
+
+  &.desc::before,
+  &.asc::after {
+    position: absolute;
+    top: 13px;
+    right: 2px;
+  
+    content: "";
+    
+    width: 13px;
+    height: 13px;
+  
+    background-image: url('../assets/img/arrow.png');
+    background-size: cover;    
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    transform: rotate(270deg);
+  }
+
+  &.asc::after {  
+    transform: rotate(90deg);
+  }
+}
+
