@@ -1,4 +1,4 @@
-import { CarSpecs, Engine, Car, Cars, Sort, Order, Winner, Winners } from '../types';
+import { CarSpecs, Engine, Car, Cars, Winner, Winners } from '../types';
 
 const BASE = 'http://localhost:3000';
 
@@ -56,7 +56,7 @@ export const getDriveStatus = async (id: number): Promise<{ success: boolean }> 
   return res.status !== 200 ? { success: false } : { ...(await res.json()) };
 };
 
-const getSortOrder = (sort: Sort, order: Order) => (sort && order ? `&_sort=${sort}&_order=${order}` : '');
+const getSortOrder = (sort: string, order: string) => (sort && order ? `&_sort=${sort}&_order=${order}` : '');
 
 export const getWinners = async ({
   page,
@@ -66,19 +66,14 @@ export const getWinners = async ({
 }: {
   page: number;
   limit?: number;
-  sort?: Sort;
-  order?: Order;
+  sort?: string;
+  order?: string;
 }): Promise<Winners> => {
   const response = await fetch(`${WINNERS}?_page=${page}&_limit=${limit}${getSortOrder(sort, order)}`);
   const items = await response.json();
 
   return {
-    items: await Promise.all(
-      items.map(async (winner: Winner) => ({
-        ...winner,
-        car: await getCar(winner.id),
-      }))
-    ),
+    items: await Promise.all(items.map(async (winner: Winner) => ({ ...winner, car: await getCar(winner.id) }))),
     count: response.headers.get('X-Total-Count') || '0',
   };
 };
