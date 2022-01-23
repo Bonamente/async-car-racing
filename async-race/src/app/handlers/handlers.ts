@@ -71,6 +71,12 @@ export const handleRaceBtnClick = async (e: Event, state: IState): Promise<void>
     return;
   }
 
+  const winnersPageLink = <HTMLAnchorElement>document.querySelector('#winners-page');
+  winnersPageLink.classList.add('disabled-link');
+
+  const generateBtn = <HTMLButtonElement>document.querySelector('.controls__generate-btn');
+  generateBtn.disabled = true;
+
   const resetBtn = <HTMLButtonElement>document.querySelector('.controls__reset-btn');
   resetBtn.disabled = false;
 
@@ -87,6 +93,9 @@ export const handleRaceBtnClick = async (e: Event, state: IState): Promise<void>
   setTimeout(() => {
     modalEl.classList.add('hidden');
   }, 5000);
+
+  winnersPageLink.classList.remove('disabled-link');
+  generateBtn.disabled = false;
 };
 
 export const handleResetBtnClick = async (e: Event, state: IState): Promise<void> => {
@@ -97,6 +106,9 @@ export const handleResetBtnClick = async (e: Event, state: IState): Promise<void
 
   const raceBtn = <HTMLButtonElement>document.querySelector('.controls__race-btn');
   raceBtn.disabled = false;
+
+  const winnersPageLink = <HTMLAnchorElement>document.querySelector('#winners-page');
+  winnersPageLink.classList.remove('disabled-link');
 };
 
 export const handleGenerateBtnClick = async (e: Event, state: IState): Promise<void> => {

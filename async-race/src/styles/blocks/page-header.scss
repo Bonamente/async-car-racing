@@ -52,6 +52,7 @@
   text-decoration: none;
 
   outline: none;
+  user-select: none;
 
   transition: 0.3s;
 
@@ -90,4 +91,9 @@
   
     font-size: 16px;  
   }
+}
+
+.disabled-link {
+  color: gray;
+  pointer-events: none;
 }
