@@ -14,7 +14,7 @@ const buildGaragePagination = (state: IState): Node => {
   const nextBtn = <HTMLButtonElement>document.createElement('button');
   nextBtn.classList.add('button', 'garage-page__next-button');
   nextBtn.innerHTML = `<span>Next</span>`;
-  nextBtn.disabled = state.carsCount && +state.carsCount <= MAX_ITEMS_PER_GARAGE_PAGE ? true : false;
+  nextBtn.disabled = state.carsPage >= Number(state.carsCount) / MAX_ITEMS_PER_GARAGE_PAGE;
 
   prevBtn.addEventListener('click', (e: Event) => handlePrevBtnClick(e, state));
   nextBtn.addEventListener('click', (e: Event) => handleNextBtnClick(e, state));

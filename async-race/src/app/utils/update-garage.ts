@@ -1,5 +1,6 @@
 import { IState } from '../types';
 import { getCars } from '../api/api';
+import { MAX_ITEMS_PER_GARAGE_PAGE } from '../api/api';
 
 const updateGarage = async (state: IState): Promise<void> => {
   const { items, count } = await getCars(state.carsPage);
@@ -10,7 +11,7 @@ const updateGarage = async (state: IState): Promise<void> => {
   prevBtn.disabled = state.carsPage <= 1;
 
   const nextBtn = <HTMLButtonElement>document.querySelector('.garage-page__next-button');
-  nextBtn.disabled = state.carsPage * 7 >= Number(state.carsCount);
+  nextBtn.disabled = state.carsPage >= Number(state.carsCount) / MAX_ITEMS_PER_GARAGE_PAGE;
 };
 
 export default updateGarage;

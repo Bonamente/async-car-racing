@@ -14,7 +14,8 @@ const buildWinnersPagination = (state: IState): Node => {
   const nextBtn = <HTMLButtonElement>document.createElement('button');
   nextBtn.classList.add('button', 'winners-page__next-button');
   nextBtn.innerHTML = `<span>Next</span>`;
-  nextBtn.disabled = state.winnersCount && +state.winnersCount <= MAX_ITEMS_PER_WINNERS_PAGE ? true : false;
+
+  nextBtn.disabled = state.winnersPage >= Number(state.winnersCount) / MAX_ITEMS_PER_WINNERS_PAGE;
 
   prevBtn.addEventListener('click', (e: Event) => handlePrevBtnClick(e, state));
   nextBtn.addEventListener('click', (e: Event) => handleNextBtnClick(e, state));
