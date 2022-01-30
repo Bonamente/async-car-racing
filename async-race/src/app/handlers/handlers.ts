@@ -64,6 +64,8 @@ export const handleUpdateFormSubmit = async (e: Event, state: IState): Promise<v
 };
 
 export const handleRaceBtnClick = async (e: Event, state: IState): Promise<void> => {
+  state.isRacing = true;
+
   const raceBtn = e.target as HTMLButtonElement;
   raceBtn.disabled = true;
 
@@ -82,23 +84,29 @@ export const handleRaceBtnClick = async (e: Event, state: IState): Promise<void>
 
   const winner = await race(startCar, state);
 
-  const modalEl = <HTMLDivElement>document.querySelector('.garage__modal');
-  const modalText = <HTMLParagraphElement>document.querySelector('.modal__text');
-  modalText.innerHTML = `${winner.name} <br> wins in ${winner.time} secs!`;
+  if (state.isRacing) {
+    const modalEl = <HTMLDivElement>document.querySelector('.garage__modal');
+    const modalText = <HTMLParagraphElement>document.querySelector('.modal__text');
+    modalText.innerHTML = `${winner.name} <br> wins in ${winner.time} secs!`;
 
-  modalEl.classList.remove('hidden');
+    modalEl.classList.remove('hidden');
 
-  await saveWinner(winner);
+    setTimeout(() => {
+      modalEl.classList.add('hidden');
+    }, 5000);
 
-  setTimeout(() => {
-    modalEl.classList.add('hidden');
-  }, 5000);
+    await saveWinner(winner);
+  }
 
   winnersPageLink.classList.remove('disabled-link');
   generateBtn.disabled = false;
+
+  state.isRacing = false;
 };
 
 export const handleResetBtnClick = async (e: Event, state: IState): Promise<void> => {
+  state.isRacing = false;
+
   const resetBtn = e.target as HTMLButtonElement;
   resetBtn.disabled = true;
 
