@@ -52,6 +52,8 @@ export interface IForms {
 export interface IState {
   activePage: string;
 
+  isRacing: boolean;
+
   forms: IForms;
 
   carsPage: number;

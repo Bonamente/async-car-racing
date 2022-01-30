@@ -32,3 +32,22 @@ img {
 
   clip: rect(0, 0, 0, 0);
 }
+
+.no-server {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  &__title,
+  &__text {
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 25px;
+
+    a {
+      color: yellow;
+    }
+  }
+}
